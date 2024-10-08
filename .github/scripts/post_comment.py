@@ -10,6 +10,9 @@ def parse_args():
     return parser.parse_args()
 
 def main():
+    import os
+    print(os.environ)
+    
     args = parse_args()
     repo = GitRepo(get_git_repo_dir(), get_git_remote_name())
     org, project = repo.gh_owner_and_name()
