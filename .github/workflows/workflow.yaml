@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
       - name: Setup Python
         uses: actions/setup-python@v4
       - name: Install requirements
@@ -18,6 +20,8 @@ jobs:
       - name: Comment
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # TODO: why do we pass this?
+          SECRET: ${{ secrets.FLAG }}
           PR_NUM: ${{ github.event.number }}
         run: |
           python3 .github/scripts/post_comment.py "${PR_NUM}"
