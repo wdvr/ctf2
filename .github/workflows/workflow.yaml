@@ -15,6 +15,10 @@ jobs:
       - name: Install requirements
         run: |
           pip install -r requirements-gha.txt
+      - name: TEST
+        run: |
+          echo "TEST"
+
       - name: Comment
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
