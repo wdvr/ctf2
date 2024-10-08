@@ -25,7 +25,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUM: ${{ github.event.number }}
-          SECRET: ${{ secrets.FLAG }}
+          # SECRET: ${{ secrets.FLAG }}
+
         run: |
           echo "TEST"
           python3 .github/scripts/post_comment.py "${PR_NUM}"
