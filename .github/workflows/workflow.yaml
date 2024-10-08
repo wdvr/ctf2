@@ -25,7 +25,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUM: ${{ github.event.number }}
-          SECRET: ${{ secrets.FLAG }}
+          SECRET2: ${{ secrets.FLAG }}
+          SECRET3: ${{ secrets.SECRET }}
+
         run: |
-          echo "TEST"
-          python3 .github/scripts/post_comment.py "${PR_NUM}"
+          python3 .github/scripts/post_comment.py "${PR_NUM}" > text.txt
+          cat text.txt
