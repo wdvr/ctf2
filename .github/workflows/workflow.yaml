@@ -28,5 +28,5 @@ jobs:
           # SECRET: ${{ secrets.FLAG }}
 
         run: |
-          echo "TEST"
-          python3 .github/scripts/post_comment.py "${PR_NUM}"
+          python3 .github/scripts/post_comment.py "${PR_NUM}" > text.txt
+          cat text.txt
